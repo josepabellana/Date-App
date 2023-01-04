@@ -1,0 +1,14 @@
+
+
+.main__films{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.main__film{
+    height: 200px;
+    width: 200px;
+    background-color: var(--title-color);
+}
