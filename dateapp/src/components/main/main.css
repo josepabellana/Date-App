@@ -12,3 +12,36 @@
     width: 200px;
     background-color: var(--title-color);
 }
+
+
+
+
+
+
+
+.miniature__container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.miniature__container:active{
+    background-color: aliceblue;
+}
+
+.miniature__logo{
+    height: 30px;
+}
+
+
+
+.search__box-film{
+    height: 300px;
+    width: 100px;
+    background-color: var(--body-color);
+}
+
+.search__box-input{
+    
+}
