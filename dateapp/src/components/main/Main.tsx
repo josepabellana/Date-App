@@ -19,7 +19,7 @@ const Main = ({ setFilm1, setFilm2 }: { setFilm1: any; setFilm2: any }) => {
       <span className="section__subtitle">Choose your film</span>
 
       <Swiper
-        className="main__container"
+        className="swiper"
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -36,10 +36,10 @@ const Main = ({ setFilm1, setFilm2 }: { setFilm1: any; setFilm2: any }) => {
         pagination={true}
         
       >
-        <SwiperSlide className="main__film">
+        <SwiperSlide className="swiper-slide">
           <Search setFilm={setFilm1} />
         </SwiperSlide>
-        <SwiperSlide className="main__film">
+        <SwiperSlide className="swiper-slide">
           <Search setFilm={setFilm2} />
         </SwiperSlide>
       </Swiper>
