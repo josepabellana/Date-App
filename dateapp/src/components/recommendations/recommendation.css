@@ -1,0 +1,14 @@
+
+
+
+.recommendations__container{
+    display: flex;
+
+}
+
+.recommendation__box{
+    display: inline-block;
+}
+.recommendation__logo{
+    height: 300px;
+}
