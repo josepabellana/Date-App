@@ -67,5 +67,8 @@
 .search__results{
   margin-top: 10px;
   position: absolute;
+  background-color: beige;
+  border-radius: 10px;
+  padding: 10px;
   bottom: -20;
 }

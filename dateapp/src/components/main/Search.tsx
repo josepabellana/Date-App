@@ -41,6 +41,7 @@ const Search = ({ setFilm, id }: { setFilm: any; id: number }) => {
           onChange={(event) => setQuery(event.target.value)}
         ></input>
       </div>
+      {results.length ?
       <div className="search__results">
         {results
           .slice(0, 5)
@@ -50,12 +51,16 @@ const Search = ({ setFilm, id }: { setFilm: any; id: number }) => {
                 key={result.id}
                 result={result}
                 setSelected={setSelected}
+                setQuery={setQuery}
               />
             ) : (
               ""
             )
           )}
       </div>
+      :
+      ''
+      }
     </>
   );
 };

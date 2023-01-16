@@ -22,7 +22,7 @@ const Recommendations = ({ recommendations }: { recommendations: any }) => {
         spaceBetween={30}
         slidesPerGroup={4}
         loop={true}
-        loopFillGroupWithBlank={true}
+        loopFillGroupWithBlank={false}
         navigation={true}
         pagination={{
             clickable: true,
@@ -31,7 +31,7 @@ const Recommendations = ({ recommendations }: { recommendations: any }) => {
         className="swiper2 mySwiper"
       >
         {recommendations.map((movie: any) => (
-          <SwiperSlide>
+          <SwiperSlide >
             <img
               src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
               alt=""

@@ -11,7 +11,12 @@ function App() {
   useEffect(() => {
     (async function activateRecommendation() {
       console.log(film1, film2);
-      if (Object.keys(film1).length !== 0) {
+      if (Object.keys(film1).length !== 0 && Object.keys(film2).length !== 0) {
+        const response = await apiService.searchRecommendationsTwo(film1,film2);
+
+        console.log('recommended', response);
+        setRecommendations((old:any) => [...response]);
+      }else if (Object.keys(film1).length !== 0) {
         const response = await apiService.searchRecommendations(film1);
         console.log('recommended', response);
         setRecommendations((old:any) => [...response.results]);
