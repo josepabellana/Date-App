@@ -28,6 +28,7 @@ const Header = () => {
             className="header__input"
             type="text"
             value={query}
+            placeholder = "Search films or TV series(TBD)"
             onChange={(event) => setQuery(event.target.value)}
           ></input>
           {results.length ? (

@@ -13,9 +13,9 @@ const FilmMiniature = ({result, setSelected,setQuery}:{
 
 
     return(
-    <div className="miniature__container" onClick={() => {setSelected(result); setQuery('') }}>
-        <img src={`https://image.tmdb.org/t/p/original/${result.poster_path}`} className="miniature__logo" ></img>
-        <div className="miniature__title" key={result.id}>{result.title}</div>
+    <div className="result__container" onClick={() => {setSelected(result); setQuery('') }}>
+        <img src={`https://image.tmdb.org/t/p/original/${result.poster_path}`} className="result__logo" ></img>
+        <h3 className="result__title" key={result.id}>{result.title}</h3>
     </div>
     )
 }
