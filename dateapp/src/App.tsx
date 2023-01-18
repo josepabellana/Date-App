@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 import Recommendations from "./components/recommendations/Recommendation";
 import apiService from "./services/tmdb";
@@ -25,6 +26,7 @@ function App() {
   }, [film1, film2]);
   return (
     <div className="App">
+      <Header />
       <Main setFilm1={setFilm1} setFilm2={setFilm2} />
       <Recommendations recommendations={recommendations}/>
     </div>

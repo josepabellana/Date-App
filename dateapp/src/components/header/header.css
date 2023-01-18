@@ -1,0 +1,42 @@
+.header__container {
+  background-color: #fcbebe;
+  height: 10vh;
+  width: 100%;
+}
+
+.nav__container {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+}
+
+.header__search {
+  width: 401px;
+}
+.header__input {
+  height: 54px;
+  width: 100%;
+  border-radius: 9px;
+  border: 5px solid #fcbebe;
+  outline: none;
+  padding: 5px;
+  font-size: var(--medium-font-size);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header__results {
+  width:100%;
+  margin-top: 10px;
+  position: absolute;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  bottom: -20;
+}
+.header__title {
+  font-family: "Brawler";
+  font-size: var(--h1-font-size);
+}

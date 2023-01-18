@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiService from "../../services/tmdb";
-import FilmMiniature from "./FilmMiniature";
+import FilmMiniature from "../header/FilmMiniature";
 
 const Search = ({ setFilm, id }: { setFilm: any; id: number }) => {
   const [query, setQuery] = useState<string>("");
