@@ -38,6 +38,13 @@ const Main = ({ film }:{
               :
               ''
             }
+            <h4>Overview</h4>
+            <p>{film.overview}</p>
+
+            <div className="film__statistics">
+              <h4>Revenue: ${film.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
+              <h4>Budget: ${film.budget.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
+            </div>
         </div>
       </div>
       :
