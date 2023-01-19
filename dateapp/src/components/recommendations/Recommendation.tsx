@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "./recommendation.css";
-
+import apiService from "../../services/tmdb";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,31 +9,52 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import {Navigation } from "swiper";
+import {Navigation, Pagination } from "swiper";
 
-const Recommendations = ({ film }: { film: any }) => {
+const Recommendations = ({ film, setFilm}:{
+  
+  film: any ,
+  setFilm:any,
+  }) => {
+
+  const [recommendations, setRecommendations] = useState<any>([]);
+  const [selected, setSelected] = useState<any>(null);
+
+  useEffect(()=>{
+    async function fetchData(){
+      //recommendations
+      const response = await apiService.getRecommendations(film.id);
+      setRecommendations(response.results);
+      console.log(response.results)
+    
+    }
+    if(film.id) fetchData();
+  },[film])
   useEffect(() => {
-    
-    
-  }, [film]);
+    async function fetchDetails(id:number){
+      const response = await apiService.searchMovieDetails(id);
+      setFilm(response);
+    }
+    if (selected !== null) fetchDetails(selected.id);      
+  }, [selected]);
+
   return (
     <section className="recommendation__container container">
-      <Swiper
-        slidesPerView={5}
-        spaceBetween={30}
-        slidesPerGroup={4}
-        loop={true}
-        loopFillGroupWithBlank={false}
+      {film.id ? <Swiper
+        slidesPerView={7}
+        spaceBetween={20}
+        slidesPerGroup={7}
         navigation={true}
         pagination={{
             clickable: true,
           }}
-        modules={[Navigation]}
+        modules={[Navigation,Pagination]}
         className="swiper2 mySwiper"
       >
         {recommendations.map((movie: any) => (
           <SwiperSlide >
             <img
+              onClick={()=>setSelected(movie)}
               src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
               alt=""
               className="recommendation__logo"
@@ -41,6 +62,9 @@ const Recommendations = ({ film }: { film: any }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+    :
+    ''
+    }
     </section>
   );
 };

@@ -5,6 +5,7 @@
 }
 
 .recommendation__logo:hover {
+  cursor: pointer;
   border: 3px solid white;
 }
 
