@@ -11,10 +11,11 @@ import "swiper/css/navigation";
 // import required modules
 import {Navigation } from "swiper";
 
-const Recommendations = ({ recommendations }: { recommendations: any }) => {
+const Recommendations = ({ film }: { film: any }) => {
   useEffect(() => {
-    console.log(recommendations);
-  }, [recommendations]);
+    
+    
+  }, [film]);
   return (
     <section className="recommendation__container container">
       <Swiper

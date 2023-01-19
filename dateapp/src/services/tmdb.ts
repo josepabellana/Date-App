@@ -31,6 +31,19 @@ async function whereToWatchDetails(movieID:number){
 
 }
 
+async function getCast(movieID:number){
+    const params = new URLSearchParams();
+    params.set('api_key', api_key);
+    try{
+        const response = await fetch(`${BASE_URL}/movie/${movieID}/credits?${params.toString()}`);
+        let data = await response.json();
+        return data;
+    }catch(err){
+        console.log(err);
+    }
+
+}
+
 async function searchMovieDetails(movieID:number){
     const params = new URLSearchParams();
     params.set('api_key', api_key);
@@ -47,11 +60,13 @@ type ApiService = {
     searchMovie: Function,
     whereToWatchDetails: Function,
     searchMovieDetails: Function,
+    getCast:Function
 }
 const apiService: ApiService = {
     searchMovie,
     whereToWatchDetails,
-    searchMovieDetails
+    searchMovieDetails,
+    getCast
 };
 
 export default apiService;

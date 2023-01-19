@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <Header setFilm={setFilm}/>
       <Main film={film} />
+      <Recommendations film={film}/>
     </div>
   );
 }

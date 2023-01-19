@@ -7,14 +7,20 @@ import apiService from "../../services/tmdb";
 const Main = ({ film }:{ 
   film:any,
 }) => {
+  const [cast, setCast] = useState<any>([])
   const [watchDetails, setWatchDetails] = useState<any>({})
   useEffect(()=>{
-    async function fetchWhereToWatchDetails(){
+    async function fetchData(){
+      //Where to watch
       const response = await apiService.whereToWatchDetails(film.id);
       setWatchDetails(response.results);
       console.log(response.results)
+      //cast
+      const castResponse = await apiService.getCast(film.id);
+      setCast(castResponse.cast);
+      console.log(castResponse.cast)
     }
-    if(film.id) fetchWhereToWatchDetails();
+    if(film.id) fetchData();
   },[film])
   
   return (
@@ -45,6 +51,21 @@ const Main = ({ film }:{
               <h4>Revenue: ${film.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
               <h4>Budget: ${film.budget.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
             </div>
+            {cast.length > 0 ? 
+              <>
+                <h4>Cast</h4>
+                <div className="main__toWatch">
+                  {cast.slice(0,10).map((info:any)=>{
+                  return (
+                    <div>
+                      <img className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.profile_path}`}/>
+                    </div>
+                  )})}
+                </div>
+              </>
+              :
+              ''
+            }
         </div>
       </div>
       :
