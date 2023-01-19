@@ -17,11 +17,17 @@ async function searchMovie(query: string = '') {
         return false;
     }
 }
-// async function searchMovieDetails(movieID:number){
-//     const params = new URLSearchParams();
-//     params.set('api_key', api_key);
-//     params.set('query', query);
-// }
+async function searchMovieDetails(movieID:number){
+    const params = new URLSearchParams();
+    params.set('api_key', api_key);
+    try{
+        const response = await fetch(`${BASE_URL}/search/movie/?${params.toString()}`);
+        let data = await response.json();
+        return data;
+    }catch(err){
+        console.log(err);
+    }
+}
 async function searchRecommendations(film1:any){
     const params = new URLSearchParams();
     params.set('api_key', api_key);
@@ -95,12 +101,14 @@ async function searchRecommendationsTwo(film1:any,film2:any){
 type ApiService = {
     searchMovie: Function,
     searchRecommendations: Function,
-    searchRecommendationsTwo: Function
+    searchRecommendationsTwo: Function,
+    searchMovieDetails: Function,
 }
 const apiService: ApiService = {
     searchMovie,
     searchRecommendations,
-    searchRecommendationsTwo
+    searchRecommendationsTwo,
+    searchMovieDetails
 };
 
 export default apiService;

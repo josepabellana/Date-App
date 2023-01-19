@@ -1,14 +1,17 @@
 import "./main.css";
 import Search from "./Search";
 
-const Main = ({ setFilm1, setFilm2 }:{ 
-  setFilm1: any; 
-  setFilm2: any;
+const Main = ({  }:{ 
+  
 }) => {
   const info = {
     title: 'Gladiator',
     backdrop_path: "hND7xAaxxBgaIspp9iMsaEXOSTz.jpg",
     poster_path: "ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
+    date:'16/6/1996(ES)',
+    genres: ['Science Fiction', 'Action','Adventure'],
+    duration: '3h 16m',
+
   }
   return (
     <section className="container section">
@@ -18,6 +21,8 @@ const Main = ({ setFilm1, setFilm2 }:{
         
         <div className="main__information">
             <h2>{info.title}</h2>
+            <p>{info.date} · {info.genres.map((genre:any)=> <>{genre}, </>)} · {info.duration}</p>
+
         </div>
       </div>
 

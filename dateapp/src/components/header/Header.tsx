@@ -2,7 +2,9 @@ import "./header.css";
 import React, { useState, useEffect } from "react";
 import apiService from "../../services/tmdb";
 import FilmMiniature from "./FilmMiniature";
-const Header = () => {
+const Header = ({setFilm}:{
+  setFilm:any,
+}) => {
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<any>([]);
   const [selected, setSelected] = useState<any>(null);
@@ -17,7 +19,9 @@ const Header = () => {
     }
   }, [query]);
   useEffect(() => {
-    //if (selected !== null) setFilm(selected);
+    if (selected !== null){ 
+      console.log(selected)
+      setFilm(selected);}
     setResults([]);
   }, [selected]);
   return (
