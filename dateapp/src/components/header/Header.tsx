@@ -19,9 +19,11 @@ const Header = ({setFilm}:{
     }
   }, [query]);
   useEffect(() => {
-    if (selected !== null){ 
-      console.log(selected)
-      setFilm(selected);}
+    async function fetchDetails(id:number){
+      const response = await apiService.searchMovieDetails(id);
+      setFilm(response);
+    }
+    if (selected !== null) fetchDetails(selected.id);      
     setResults([]);
   }, [selected]);
   return (

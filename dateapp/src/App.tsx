@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Header setFilm={setFilm}/>
-      <Main  />
+      <Main film={film} />
     </div>
   );
 }
