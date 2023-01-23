@@ -37,8 +37,8 @@ const Main = ({ film }:{
               <>
                 <h4>Where to Watch</h4>
                 <div className="main__toWatch">
-                  {watchDetails.ES.flatrate.map((info:any)=>{
-                  return <img className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.logo_path}`}></img>
+                  {watchDetails.ES.flatrate.map((info:any,index:number)=>{
+                  return <img key={index} className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.logo_path}`}></img>
                   })}
                 </div>
               </>
