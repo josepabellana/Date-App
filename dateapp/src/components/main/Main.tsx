@@ -36,7 +36,7 @@ const Main = ({ film }:{
               <>
                 <h4>Where to Watch</h4>
                 <div className="main__toWatch">
-                  {watchDetails.ES.flatrate.map((info:any)=>{
+                  {watchDetails.Es.flatrate && watchDetails.ES.flatrate.map((info:any)=>{
                   return <img className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.logo_path}`}></img>
                   })}
                 </div>
