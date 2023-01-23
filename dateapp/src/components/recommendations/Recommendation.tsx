@@ -49,7 +49,7 @@ const Recommendations = ({ film, setFilm}:{
             clickable: true,
           }}
         modules={[Navigation,Pagination]}
-        className="swiper2 mySwiper"
+        className="swiper mySwiper"
       >
         {recommendations.map((movie: any) => (
           <SwiperSlide >
