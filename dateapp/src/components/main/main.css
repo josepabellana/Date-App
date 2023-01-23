@@ -103,3 +103,12 @@
   padding: 10px;
   bottom: -20;
 }
+
+
+
+.main__cast{
+  padding:5px;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 2px;
+}

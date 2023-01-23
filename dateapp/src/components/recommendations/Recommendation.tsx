@@ -51,8 +51,8 @@ const Recommendations = ({ film, setFilm}:{
         modules={[Navigation,Pagination]}
         className="swiper2 mySwiper"
       >
-        {recommendations.map((movie: any) => (
-          <SwiperSlide >
+        {recommendations.map((movie: any,index:number) => (
+          <SwiperSlide key={index}>
             <img
               onClick={()=>setSelected(movie)}
               src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
