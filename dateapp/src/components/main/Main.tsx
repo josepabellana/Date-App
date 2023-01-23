@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./main.css";
 import apiService from "../../services/tmdb";
+import { isStringObject } from "util/types";
 
 
 
@@ -57,8 +58,9 @@ const Main = ({ film }:{
                 <div className="main__toWatch">
                   {cast.slice(0,10).map((info:any)=>{
                   return (
-                    <div>
+                    <div className="main__cast">
                       <img className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.profile_path}`}/>
+                      <p>{info.name}</p>
                     </div>
                   )})}
                 </div>
