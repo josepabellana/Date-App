@@ -31,7 +31,7 @@ const Main = ({ film }:{
         <img className="main__poster" src={`https://image.tmdb.org/t/p/original/${film.poster_path}`}></img>
         
         <div className="main__information">
-            <h2>{film.title}</h2>
+            <h2><a href={`https://en.wikipedia.org/wiki/${film.title.split(' ').join('_')}_(${film.release_date.slice(0,4)}_film)`}>{film.title}</a></h2>
             <p>{film.release_date} · {film.genres.map((genre:any)=> <>{genre.name}, </>)} · {~~(film.runtime/60)}h {(film.runtime-~~(film.runtime/60)*60)%60}m</p>
             {watchDetails.ES && watchDetails.ES.flatrate && Object.keys(watchDetails).length > 0 ? 
               <>
