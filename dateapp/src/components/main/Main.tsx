@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./main.css";
 import apiService from "../../services/tmdb";
-import { isStringObject } from "util/types";
+import Cast from "./Cast";
 
 
 
@@ -53,18 +53,7 @@ const Main = ({ film }:{
               <h4>Budget: ${film.budget.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
             </div>
             {cast.length > 0 ? 
-              <>
-                <h4>Cast</h4>
-                <div className="main__toWatch">
-                  {cast.slice(0,10).map((info:any,index:number)=>{
-                  return (
-                    <div className="main__cast" key ={index}>
-                      <img className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.profile_path}`}/>
-                      <p>{info.name}</p>
-                    </div>
-                  )})}
-                </div>
-              </>
+              <Cast cast={cast}/>
               :
               ''
             }
