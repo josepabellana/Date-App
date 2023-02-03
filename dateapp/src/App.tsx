@@ -22,7 +22,7 @@ function App() {
    .then((response) => response.json())
    .then((data) => {
     setCountryData(data.results[0].components)
-    setCountryCode(data.results[0].components.country_code);
+    setCountryCode(data.results[0].components.country_code.toUpperCase());
   })
 
    

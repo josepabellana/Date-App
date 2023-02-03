@@ -76,8 +76,9 @@ const Header = ({setFilm, countryCode, setCountryCode, countryName}:{
           classes="header__country-selector"
           value={countryCode}
           valueType="short"
-          defaultOptionLabel={countryName}
-          onChange={(val) => setCountryCode(val)} />
+          onChange={(val) => {
+            console.log(val)
+            setCountryCode(val)}} />
         
         </div>
       </nav>
