@@ -11,17 +11,15 @@ const Main = ({ film,countryCode }:{
 }) => {
   const [cast, setCast] = useState<any>([])
   const [watchDetails, setWatchDetails] = useState<any>({})
-  
+  const [selectedToWatch, setSelectedToWatch] = useState<any>('flatrate')
   useEffect(()=>{
     async function fetchData(){
       //Where to watch
       const response = await apiService.whereToWatchDetails(film.id);
       setWatchDetails(response.results);
-      console.log(response.results)
       //cast
       const castResponse = await apiService.getCast(film.id);
       setCast(castResponse.cast);
-      console.log(castResponse.cast)
     }
     if(film.id) fetchData();
   },[film]);
@@ -39,7 +37,14 @@ const Main = ({ film,countryCode }:{
             {watchDetails[`${countryCode}`] && watchDetails[`${countryCode}`].flatrate && Object.keys(watchDetails).length > 0 ? 
               <>
                 <h4>Where to Watch</h4>
+                <select className="main__toWatch-select" defaultValue={'flatrate'} onSelect={(e)=>console.log(e)}>
+                
+                    <>
+                    {Object.keys(watchDetails[`${countryCode}`]).map((el:any)=> el !== 'link' ?<option value={el} >{el==='flatrate'?'Stream':el.charAt(0).toUpperCase()+el.split('').slice(1).join('')}</option>: '')}
+                    </>
+                  </select>
                 <div className="main__toWatch">
+                  
                   {watchDetails[`${countryCode}`].flatrate.map((info:any,index:number)=>{
                   return <img key={index} className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.logo_path}`}></img>
                   })}

@@ -1,11 +1,11 @@
-import "./header.css";
+import "./welcome.css";
 import React, { useState, useEffect } from "react";
 import apiService from "../../services/tmdb";
 import FilmMiniature from "./FilmMiniature";
 import Input from "./Input";
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 
-const Header = ({setFilm, countryCode, setCountryCode, countryName}:{
+const Welcome = ({setFilm, countryCode, setCountryCode, countryName}:{
   setFilm:any,
   countryCode:string,
   setCountryCode:any,
@@ -33,14 +33,16 @@ const Header = ({setFilm, countryCode, setCountryCode, countryName}:{
     setResults([]);
   }, [selected]);
   return (
-    <header className="header__container">
-      <nav className="nav__container">
+    <div className="welcome__container">
+        <div className="header__title">
+          <h1>Date App</h1>
+        </div>
         <div className="header__search">
+            <h3 className="welcome__input-text">Choose the film to get all its info!</h3>
           <Input query={query} setQuery={setQuery}/>
           {results.length ? (
             <div className="header__results">
               {results
-                .slice(0, 5)
                 .map((result: any) =>
                   result.poster_path !== null ? (
                     <FilmMiniature
@@ -58,17 +60,15 @@ const Header = ({setFilm, countryCode, setCountryCode, countryName}:{
             ""
           )}
         </div>
-        <div className="header__title">
-          <h1>Date App</h1>
-        </div>
-        <div className="header__country">
+        
+        <div className="welcome__country">
           <div className="header__flag">
             {countryCode !== ''  ? <img crossOrigin="anonymous" src={`https://countryflagsapi.com/png/${countryCode}`}></img> : '' }
           
           </div >
           
           <CountryDropdown
-          classes="header__country-selector"
+          classes="heder__country-selector"
           value={countryCode}
           valueType="short"
           onChange={(val) => {
@@ -76,9 +76,8 @@ const Header = ({setFilm, countryCode, setCountryCode, countryName}:{
             setCountryCode(val)}} />
         
         </div>
-      </nav>
-    </header>
+    </div>
   );
 };
 
-export default Header;
+export default Welcome;

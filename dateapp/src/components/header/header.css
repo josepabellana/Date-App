@@ -1,5 +1,5 @@
 .header__container {
-  background-color: #fcbebe;
+  
   height: 10vh;
   width: 100%;
 }
@@ -53,6 +53,8 @@
 }
 .header__results {
   width: 391px;
+  height: 400px;
+  overflow: scroll;
   background-color: white;
   margin-top: 10px;
   position: absolute;
@@ -72,6 +74,7 @@
   cursor: pointer;
   z-index: 10;
   padding:5px;
+
 }
 .result__container:hover{
     background-color: rgb(197, 197, 197);
