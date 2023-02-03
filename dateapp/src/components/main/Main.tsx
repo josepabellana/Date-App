@@ -5,18 +5,13 @@ import Cast from "./Cast";
 
 
 
-const Main = ({ film }:{ 
+const Main = ({ film,countryCode }:{ 
   film:any,
+  countryCode:any
 }) => {
   const [cast, setCast] = useState<any>([])
   const [watchDetails, setWatchDetails] = useState<any>({})
-
-  useEffect(()=>{
-    navigator.geolocation.getCurrentPosition(function(position:any) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
-    });
-  },[])
+  
   useEffect(()=>{
     async function fetchData(){
       //Where to watch
@@ -29,7 +24,7 @@ const Main = ({ film }:{
       console.log(castResponse.cast)
     }
     if(film.id) fetchData();
-  },[film])
+  },[film]);
   
   return (
     <section className="container section">
@@ -38,13 +33,14 @@ const Main = ({ film }:{
         <img className="main__poster" src={`https://image.tmdb.org/t/p/original/${film.poster_path}`}></img>
         
         <div className="main__information">
+          
             <a href={`https://en.wikipedia.org/wiki/${film.title.split(' ').join('_')}_(${film.release_date.slice(0,4)}_film)`}><h2>{film.title}</h2></a>
             <p>{film.release_date} · {film.genres.map((genre:any)=> <>{genre.name}, </>)} · {~~(film.runtime/60)}h {(film.runtime-~~(film.runtime/60)*60)%60}m</p>
-            {watchDetails.ES && watchDetails.ES.flatrate && Object.keys(watchDetails).length > 0 ? 
+            {watchDetails[`${countryCode}`] && watchDetails[`${countryCode}`].flatrate && Object.keys(watchDetails).length > 0 ? 
               <>
                 <h4>Where to Watch</h4>
                 <div className="main__toWatch">
-                  {watchDetails.ES.flatrate.map((info:any,index:number)=>{
+                  {watchDetails[`${countryCode}`].flatrate.map((info:any,index:number)=>{
                   return <img key={index} className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.logo_path}`}></img>
                   })}
                 </div>

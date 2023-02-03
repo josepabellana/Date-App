@@ -2,13 +2,18 @@ import "./header.css";
 import React, { useState, useEffect } from "react";
 import apiService from "../../services/tmdb";
 import FilmMiniature from "./FilmMiniature";
-const Header = ({setFilm}:{
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+
+const Header = ({setFilm, countryCode, setCountryCode, countryName}:{
   setFilm:any,
+  countryCode:string,
+  setCountryCode:any,
+  countryName:string
 }) => {
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<any>([]);
   const [selected, setSelected] = useState<any>(null);
-
+  
   useEffect(() => {
     async function fetchData() {
       const response = await apiService.searchMovie(query);
@@ -60,6 +65,20 @@ const Header = ({setFilm}:{
         </div>
         <div className="header__title">
           <h1>Date App</h1>
+        </div>
+        <div className="header__country">
+          <div className="header__flag">
+            {countryCode !== ''  ? <img crossOrigin="anonymous" src={`https://countryflagsapi.com/png/${countryCode}`}></img> : '' }
+          
+          </div >
+          
+          <CountryDropdown
+          classes="header__country-selector"
+          value={countryCode}
+          valueType="short"
+          defaultOptionLabel={countryName}
+          onChange={(val) => setCountryCode(val)} />
+        
         </div>
       </nav>
     </header>
