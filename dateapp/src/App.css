@@ -7,15 +7,15 @@
   /* color mode hsl(hue,saturation,lightness)*/
   --hue: 0;
   --sat:0%;
-  --title-color: hsl(var(--hue),var(--sat), 20%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%);
-  --body-color: hsl(var(--hue), var(--sat), 98%);
+  --title-color: #fff;
+  --title-color-dark: hsl(var(--hue), var(--sat), 80%);
+  --text-color: hsl(var(--hue), var(--sat), 80%);
+  --body-color: #060d17;
   --ion-color-primary: #fbc500;
-  --container-color: #fff;
+  --container-color: #060d17;
 
 
-  --body-font: 'Ubuntu', sans-serif;
+  --body-font: Lato,Lato-fallback,Arial,sans-serif;;
 
   /* .5rem = 8px | 1rem = 16px... */
   --big-font-size: 3.5rem;
