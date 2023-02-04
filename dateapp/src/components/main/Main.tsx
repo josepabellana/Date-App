@@ -37,15 +37,15 @@ const Main = ({ film,countryCode }:{
             {watchDetails[`${countryCode}`] && watchDetails[`${countryCode}`].flatrate && Object.keys(watchDetails).length > 0 ? 
               <>
                 <h4>Where to Watch</h4>
-                <select className="main__toWatch-select" defaultValue={'flatrate'} onSelect={(e)=>console.log(e)}>
+                <select className="main__toWatch-select" defaultValue={selectedToWatch} onChange={(e)=>setSelectedToWatch(e.target.value)}>
                 
                     <>
-                    {Object.keys(watchDetails[`${countryCode}`]).map((el:any)=> el !== 'link' ?<option value={el} >{el==='flatrate'?'Stream':el.charAt(0).toUpperCase()+el.split('').slice(1).join('')}</option>: '')}
+                    {Object.keys(watchDetails[`${countryCode}`]).map((el:any)=> el !== 'link' ? <option value={el} >{el==='flatrate'?'Stream':el.charAt(0).toUpperCase()+el.split('').slice(1).join('')}</option>: '')}
                     </>
                   </select>
                 <div className="main__toWatch">
                   
-                  {watchDetails[`${countryCode}`].flatrate.map((info:any,index:number)=>{
+                  {watchDetails[`${countryCode}`][`${selectedToWatch}`].map((info:any,index:number)=>{
                   return <img key={index} className="main__toWatch-logo" src={`https://image.tmdb.org/t/p/original${info.logo_path}`}></img>
                   })}
                 </div>
