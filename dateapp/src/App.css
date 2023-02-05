@@ -8,7 +8,7 @@
   --hue: 0;
   --sat:0%;
   --title-color: #fff;
-  --title-color-dark: hsl(var(--hue), var(--sat), 80%);
+  --title-color-dark: hsl(var(--hue), var(--sat), 50%);
   --text-color: hsl(var(--hue), var(--sat), 80%);
   --body-color: #060d17;
   --ion-color-primary: #fbc500;

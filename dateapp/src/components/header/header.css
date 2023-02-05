@@ -91,4 +91,5 @@
 
 .result__title{
     margin-left:10px;
+    color: var(--title-color-dark)
 }
