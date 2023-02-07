@@ -93,3 +93,31 @@
     margin-left:10px;
     color: var(--title-color-dark)
 }
+
+
+/*====BREAKPOINTS====*/
+
+/*large devices*/
+@media screen and (max-width:992px){
+  .header__search {
+    width: 281px;
+  }
+  .header__input {
+    height: 39px;
+  }
+  .header__results {
+    width: 271px;
+    height: 400px;
+  }
+}
+/*medium devices*/
+@media screen and (max-width:768px){
+  
+}
+@media screen and (max-width:576px){}
+/*small devices*/
+@media screen and (max-width: 350px){
+  
+
+}
+/**/

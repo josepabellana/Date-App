@@ -112,3 +112,25 @@
   border: 1px solid black;
   box-shadow: 2px;
 }
+
+
+
+/*====BREAKPOINTS====*/
+
+/*large devices*/
+@media screen and (max-width:992px){
+  .main__poster{
+    display: none;
+  }
+}
+/*medium devices*/
+@media screen and (max-width:768px){
+  
+}
+@media screen and (max-width:576px){}
+/*small devices*/
+@media screen and (max-width: 350px){
+  
+
+}
+/**/
